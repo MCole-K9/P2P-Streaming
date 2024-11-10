@@ -12,7 +12,7 @@
 
     <div class="grid grid-cols-4 gap-5">
         {#each data.trending.results || [] as trending}
-        <a href="">
+        <a href="/{trending.media_type}/{trending.id}">
             <div class="card bg-base-100 shadow-xl">
                 <figure>
                     <img
