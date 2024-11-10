@@ -11,20 +11,17 @@
     <h1 class="mb-5 text-center font-bold text-2xl">Movies</h1>
 
     <div class="grid grid-cols-4 gap-5">
-        {#each data.trending.results as trending}
-            <div class="card bg-base-100  shadow-xl">
+        {#each data.trending.results || [] as trending}
+            <div class="card bg-base-100 shadow-xl">
                 <figure>
                     <img
-                        src="{TMDBImageURL(trending.poster_path, 'original')}"
-                        alt="Shoes"
+                        src="{TMDBImageURL(trending.poster_path || '', 'original')}"
+                        alt="{trending.title}"
                     />
                 </figure>
                 <div class="card-body">
                     <h2 class="card-title">{trending.title}</h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
-                    <div class="card-actions justify-end">
-                        <button class="btn btn-primary">Buy Now</button>
-                    </div>
+                    <p>{trending.media_type?.toUpperCase()} - {trending.release_date?.split("-")[0]}</p>
                 </div>
             </div>
         {/each}
