@@ -8,7 +8,7 @@
         <h2 class="card-title">Movies / TV Shows</h2>
         <!-- <p>Educational Purposes</p> -->
         <div class="card-actions justify-end">
-          <a href="/movies" class="btn btn-primary">Go</a>
+          <a href="/ent-home" class="btn btn-primary">Go</a>
         </div>
       </div>
     </div>

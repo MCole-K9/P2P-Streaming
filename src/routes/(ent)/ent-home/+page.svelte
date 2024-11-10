@@ -12,6 +12,7 @@
 
     <div class="grid grid-cols-4 gap-5">
         {#each data.trending.results || [] as trending}
+        <a href="">
             <div class="card bg-base-100 shadow-xl">
                 <figure>
                     <img
@@ -24,6 +25,8 @@
                     <p>{trending.media_type?.toUpperCase()} - {trending.release_date?.split("-")[0]}</p>
                 </div>
             </div>
+        </a>
+         
         {/each}
     </div>
 </main>
