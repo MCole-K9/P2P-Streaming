@@ -1,32 +1,36 @@
 <script lang="ts">
-    import { TMDBImageURL } from '$lib/utils/index.js';
+    import { TMDBImageURL } from "$lib/utils/index.js";
 
     let { data } = $props();
 
     $inspect(data);
 </script>
 
-<main class="p-4">
-    <a class="btn btn-primary" href="/">Back</a>
-    <h1 class="mb-5 text-center font-bold text-2xl">Movies</h1>
+<h1 class="mb-5 text-center font-bold text-2xl">Movies</h1>
 
-    <div class="grid grid-cols-4 gap-5">
-        {#each data.trending.results || [] as trending}
+<div class="grid grid-cols-6 gap-5 ">
+    {#each data.trending.results || [] as trending}
         <a href="/{trending.media_type}/{trending.id}">
-            <div class="card bg-base-100 shadow-xl">
+            <div class="card bg-base-100">
                 <figure>
                     <img
-                        src="{TMDBImageURL(trending.poster_path || '', 'original')}"
-                        alt="{trending.title}"
+                        src={TMDBImageURL(
+                            trending.poster_path || "",
+                            "original",
+                        )}
+                        alt={trending.title}
                     />
                 </figure>
-                <div class="card-body">
+                <div class="p-4">
+                    <p>
+                        {trending.media_type?.toUpperCase()} - {trending.release_date?.split(
+                            "-",
+                        )[0]}
+                    </p>
                     <h2 class="card-title">{trending.title}</h2>
-                    <p>{trending.media_type?.toUpperCase()} - {trending.release_date?.split("-")[0]}</p>
+                    
                 </div>
             </div>
         </a>
-         
-        {/each}
-    </div>
-</main>
+    {/each}
+</div>
