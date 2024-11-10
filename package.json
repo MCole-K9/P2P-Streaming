@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-    "tauri": "tauri"
+    "tauri": "tauri",
+    "gen-types": "openapi-typescript https://developer.themoviedb.org/openapi/64542913e1f86100738e227f --output src/lib/types/tmdb.ts"
   },
   "license": "MIT",
   "dependencies": {
@@ -25,11 +26,12 @@
     "@tauri-apps/cli": "^2",
     "autoprefixer": "^10.4.20",
     "daisyui": "^4.12.14",
+    "openapi-typescript": "^7.4.3",
     "svelte": "^5.0.0",
     "svelte-check": "^4.0.0",
     "tailwindcss": "^3.4.9",
     "tslib": "^2.8.0",
-    "typescript": "^5.5.0",
+    "typescript": "^5.6.3",
     "vite": "^5.4.10"
   }
 }
